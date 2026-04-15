@@ -20,13 +20,14 @@ function CreateModal({ setVisible, todoToUpdate }) {
 
   const handleSave = (e) => {
     e.preventDefault();
-    
-  
+
     if (todoToUpdate) {
       dispatch(updateTodo({ ...form, id: todoToUpdate.id }));
     } else {
       dispatch(createTodo(form));
     }
+
+    setForm({ name: "", email: "", phone: "", status: "" });
     setVisible(false);
   };
 
@@ -44,7 +45,7 @@ function CreateModal({ setVisible, todoToUpdate }) {
       >
         <div>
           <input
-            value={form.title}
+            value={form.name}
             class="border border-gray-300 rounded-lg w-full p-2 outline-none"
             placeholder="Name"
             onChange={(e) => setForm({ ...form, name: e.target.value })}
@@ -87,7 +88,7 @@ function CreateModal({ setVisible, todoToUpdate }) {
         <div className="flex flex-row gap-4">
           <button
             onClick={handleCancel}
-            
+           
           >
             CANCEL
           </button>

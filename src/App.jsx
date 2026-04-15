@@ -13,6 +13,7 @@ function App() {
   const [todoToUpdate, setTodoToUpdate] = useState(null);
 
   const handleCreateTodo = () => {
+    setTodoToUpdate(null);
     setVisible(true);
   };
 
